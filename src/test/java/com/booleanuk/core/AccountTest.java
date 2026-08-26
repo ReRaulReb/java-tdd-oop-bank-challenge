@@ -38,11 +38,11 @@ public class AccountTest {
 		Assertions.assertEquals(4000f, this.a.getBalance(), 0.0001);
 	}
 
-	// @Test
-	// public void shouldWithdraw(){
-	// 	this.a.withdraw(1000f);
-	// 	Assertions.assertEquals(1000f, this.a.getBalance(), 0.0001);
-	// }
+	@Test
+	public void shouldWithdraw() throws Exception{
+		this.a.withdraw(1000f);
+		Assertions.assertEquals(1000f, this.a.getBalance(), 0.0001);
+	}
 
 	// @Test
 	// public void generateBankStatement(){

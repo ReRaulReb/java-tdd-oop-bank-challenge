@@ -41,5 +41,13 @@ public class Account {
 		setBalance(getBalance() + amount);
 	}
 
+	public void withdraw(float amount) throws Exception{
+		if ((getBalance() - amount) < 0)
+			throw new Exception("Cannot make withdrawl, balance is less then amount requested");
+		BankStatement bankStatement = new BankStatement(0f, amount, getBalance());
+		addBankStatement(bankStatement);
+		setBalance(getBalance() - amount);
+	}
+
 }
 
