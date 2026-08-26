@@ -44,6 +44,12 @@ public class AccountTest {
 		Assertions.assertEquals(1000f, this.a.getBalance(), 0.0001);
 	}
 
+	@Test
+	void shouldThrowExeptionWhenWithdrawLeadsToNegativeBalance(){
+		Exception exception = assertThrows(Exception.class, () -> this.a.withdraw(2500f));
+		assertEquals("Cannot make withdrawl, balance is less then amount requested", exception);
+	}
+
 	// @Test
 	// public void generateBankStatement(){
 	// 	String expected = "date       || credit  || debit   || balance\n"
