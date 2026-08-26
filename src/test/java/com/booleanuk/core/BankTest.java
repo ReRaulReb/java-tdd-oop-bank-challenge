@@ -19,24 +19,24 @@ public class BankTest {
 
 	@Test
 	public void shouldRequestCurrentAccount(){
-		Account resAcc = this.b.requestAccount("testAccount", "CUR");
+		Account resAcc = b.requestAccount("testAccount", "CUR");
 		Assertions.assertEquals(CurrentAccount.class, resAcc.getClass());
 		Assertions.assertEquals("testAccount", resAcc.getName());
 	}
 
 	@Test
 	public void shouldRequestSavingsAccount(){
-		Account resAcc = this.b.requestAccount("testAccount", "SAV");
+		Account resAcc = b.requestAccount("testAccount", "SAV");
 		Assertions.assertEquals(SavingsAccount.class, resAcc.getClass());
 		Assertions.assertEquals("testAccount", resAcc.getName());
 	}
 
 	@Test void shouldBeVailidAccount(){
-		Assertions.assertTrue(this.b.isValidAccount("TestAccount"));
+		Assertions.assertTrue(b.isValidAccount("TestAccount"));
 	}
 
 	@Test void shouldBeInvalidAccount(){
-		Assertions.assertFalse(this.b.isValidAccount("nvim funds"));
+		Assertions.assertFalse(b.isValidAccount("nvim funds"));
 	}
 
 	// @Test void shouldGetAccount(){

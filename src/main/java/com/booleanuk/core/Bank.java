@@ -15,7 +15,7 @@ public class Bank {
 	}
 
 	public boolean isValidAccount(String name){
-		return this.accounts.containsKey(name);
+		return !(this.accounts.containsKey(name));
 	}
 
 	public Account requestAccount(String name, String type){
@@ -23,9 +23,17 @@ public class Bank {
 		switch(type){
 			case "CUR":
 				acc = new CurrentAccount(name);
+				break;
 			case "SAV":
 				acc = new SavingsAccount(name);
+				break;
 		}
+
+		addAccount(name, acc);
 		return acc;
+	}
+
+	private void addAccount(String name, Account acc){
+		this.accounts.put(name, acc);
 	}
 }
