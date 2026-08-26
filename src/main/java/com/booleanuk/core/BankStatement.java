@@ -52,7 +52,8 @@ public class BankStatement {
 	private void setMaxLenght(float credit, float debit){
 		if(!(credit == 0f))
 			this.maxLenght = String.format("%.2f", credit).length() + 2;
-		this.maxLenght = String.format("%.2f", debit).length() + 2;
+		else
+			this.maxLenght = String.format("%.2f", debit).length() + 2;
 	}
 
 	public LocalDate getDate(){
