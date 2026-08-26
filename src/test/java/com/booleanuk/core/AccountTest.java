@@ -27,10 +27,10 @@ public class AccountTest {
 		Assertions.assertEquals(2000f, a.getBalance(), 0.0001);
 	}
 
-	// @Test
-	// public void shouldGetName(){
-	// 	Assertions.assertEquals("testAccount", a.getName());
-	// }
+	@Test
+	public void shouldGetName(){
+		Assertions.assertEquals("testAccount", a.getName());
+	}
 
 	@Test
 	public void shouldDeposit(){
