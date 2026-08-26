@@ -39,27 +39,27 @@ public class BankTest {
 		Assertions.assertFalse(b.isValidAccount("nvim funds"));
 	}
 
-	// @Test void shouldGetAccount(){
-	// 	Account resAcc = this.b.getAccount("nvim funds");
-	// 	Assertions.assertEquals(SavingsAccount.class, resAcc.class);
-	// 	Assertions.assertEquals("nvim funds", resAcc.getName());
-	// }
+	@Test void shouldGetAccount(){
+		Account resAcc = this.b.getAccount("nvim funds");
+		Assertions.assertEquals(SavingsAccount.class, resAcc.class);
+		Assertions.assertEquals("nvim funds", resAcc.getName());
+	}
 
-	// @Test
-	// void shouldThrowAccountNotAvailable() throws Exception{
-	// 	Exception exception = assertThrows(Exception.class, () -> b.requestAccount("nvim funds", "SAV"));
-	// 	assertEquals("Account is not available!", exception.getMessage());
-	// }
+	@Test
+	void shouldThrowAccountNotAvailable() throws Exception{
+		Exception exception = assertThrows(Exception.class, () -> b.requestAccount("nvim funds", "SAV"));
+		assertEquals("Account is not available!", exception.getMessage());
+	}
 
-	// @Test
-	// void shouldThrowNoSuchAccountType() throws Exception{
-	// 	Exception exception = assertThrows(Exception.class, () -> b.requestAccount("nvim funds", "NOT"));
-	// 	assertEquals("No such account type!", exception.getMessage());
-	// }
+	@Test
+	void shouldThrowNoSuchAccountType() throws Exception{
+		Exception exception = assertThrows(Exception.class, () -> b.requestAccount("nvim funds", "NOT"));
+		assertEquals("No such account type!", exception.getMessage());
+	}
 
-	// @Test
-	// void shouldThrowAccountDoesNotExist() throws Exception{
-	// 	Exception exception = assertThrows(Exception.class, () -> b.getAccount("test"));
-	// 	assertEquals("No such account type!", exception.getMessage());
-	// }
+	@Test
+	void shouldThrowAccountDoesNotExist() throws Exception{
+		Exception exception = assertThrows(Exception.class, () -> b.getAccount("test"));
+		assertEquals("No such account type!", exception.getMessage());
+	}
 }
