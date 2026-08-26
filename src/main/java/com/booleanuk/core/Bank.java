@@ -18,7 +18,7 @@ public class Bank {
 		return !(this.accounts.containsKey(name));
 	}
 
-	public Account requestAccount(String name, String type){
+	public Account requestAccount(String name, String type) throws Exception{
 		Account acc = null;
 		switch(type){
 			case "CUR":
@@ -27,10 +27,22 @@ public class Bank {
 			case "SAV":
 				acc = new SavingsAccount(name);
 				break;
+			default:
+				throw new Exception("No such account type!");
 		}
+		if(isValidAccount(name))
+			addAccount(name, acc);
+		else
+			throw new Exception("Account is not available!");
 
-		addAccount(name, acc);
 		return acc;
+	}
+
+	public Account getAccount(String name) throws Exception{
+		if(!isValidAccount(name))
+			return this.accounts.get(name);
+		else
+			throw new Exception("Account is not available!");
 	}
 
 	private void addAccount(String name, Account acc){

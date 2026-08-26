@@ -12,20 +12,20 @@ public class BankTest {
 
 	private Bank b;
 
-	public BankTest(){
+	public BankTest() throws Exception{
 		this.b = new Bank();
 		this.b.requestAccount("nvim funds", "SAV");
 	}
 
 	@Test
-	public void shouldRequestCurrentAccount(){
+	public void shouldRequestCurrentAccount() throws Exception{
 		Account resAcc = b.requestAccount("testAccount", "CUR");
 		Assertions.assertEquals(CurrentAccount.class, resAcc.getClass());
 		Assertions.assertEquals("testAccount", resAcc.getName());
 	}
 
 	@Test
-	public void shouldRequestSavingsAccount(){
+	public void shouldRequestSavingsAccount() throws Exception{
 		Account resAcc = b.requestAccount("testAccount", "SAV");
 		Assertions.assertEquals(SavingsAccount.class, resAcc.getClass());
 		Assertions.assertEquals("testAccount", resAcc.getName());
@@ -39,9 +39,9 @@ public class BankTest {
 		Assertions.assertFalse(b.isValidAccount("nvim funds"));
 	}
 
-	@Test void shouldGetAccount(){
+	@Test void shouldGetAccount() throws Exception{
 		Account resAcc = this.b.getAccount("nvim funds");
-		Assertions.assertEquals(SavingsAccount.class, resAcc.class);
+		Assertions.assertEquals(SavingsAccount.class, resAcc.getClass());
 		Assertions.assertEquals("nvim funds", resAcc.getName());
 	}
 
@@ -60,6 +60,6 @@ public class BankTest {
 	@Test
 	void shouldThrowAccountDoesNotExist() throws Exception{
 		Exception exception = assertThrows(Exception.class, () -> b.getAccount("test"));
-		assertEquals("No such account type!", exception.getMessage());
+		assertEquals("Account is not available!", exception.getMessage());
 	}
 }
