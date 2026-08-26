@@ -80,4 +80,18 @@ public class BankStatement {
 		return this.maxLenght;
 	}
 
+	@Override
+	public String toString(){
+		if(!(getCredit() == 0f))
+			return getDate().toString() + " || " + 
+			       String.format("%.2f", getCredit()) + " ||" +
+			       " ".repeat(getMaxLenght())+ "|| " +
+			       String.format("%.2f", getCurrentBalance());
+		else
+			return getDate().toString() + " ||" +
+			       " ".repeat(getMaxLenght()) + "|| " +
+			       String.format("%.2f", getDebit()) + " ||" +
+			       String.format("%.2f", getCurrentBalance());
+	}
+
 }
