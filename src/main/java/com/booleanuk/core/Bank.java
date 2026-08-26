@@ -20,6 +20,7 @@ public class Bank {
 
 	public Account requestAccount(String name, String type) throws Exception{
 		Account acc = null;
+		
 		switch(type){
 			case "CUR":
 				acc = new CurrentAccount(name);
@@ -30,6 +31,7 @@ public class Bank {
 			default:
 				throw new Exception("No such account type!");
 		}
+
 		if(isValidAccount(name))
 			addAccount(name, acc);
 		else
@@ -48,5 +50,5 @@ public class Bank {
 	private void addAccount(String name, Account acc){
 		this.accounts.put(name, acc);
 	}
-	
+
 }
