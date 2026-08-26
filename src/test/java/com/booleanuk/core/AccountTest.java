@@ -16,11 +16,11 @@ public class AccountTest {
 	private Account a;
 	private LocalDate date;
 
-	// public AccountTest(){
-	// 	this.a = new Account("testAccount");
-	// 	this.a.deposit(2000f);
-	// 	this.date = LocalDate.now();
-	// }
+	public AccountTest(){
+		this.a = new Account("testAccount");
+		this.a.deposit(2000f);
+		this.date = LocalDate.now();
+	}
 
 	// @Test
 	// public void shouldGetBalance(){
