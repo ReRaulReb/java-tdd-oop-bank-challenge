@@ -3,12 +3,7 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import java.time.LocalDate;
-
-import com.booleanuk.core.accounts.*;
 
 
 public class AccountTest {
@@ -46,8 +41,8 @@ public class AccountTest {
 
 	@Test
 	void shouldThrowExeptionWhenWithdrawLeadsToNegativeBalance(){
-		Exception exception = assertThrows(Exception.class, () -> this.a.withdraw(2500f));
-		assertEquals("Cannot make withdrawl, balance is less then amount requested", exception.getMessage());
+		Exception exception = Assertions.assertThrows(Exception.class, () -> this.a.withdraw(2500f));
+		Assertions.assertEquals("Cannot make withdrawl, balance is less then amount requested", exception.getMessage());
 	}
 
 	@Test
