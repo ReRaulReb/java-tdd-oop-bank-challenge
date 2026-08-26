@@ -50,12 +50,12 @@ public class AccountTest {
 		assertEquals("Cannot make withdrawl, balance is less then amount requested", exception.getMessage());
 	}
 
-	// @Test
-	// public void generateBankStatement(){
-	// 	String expected = "date       || credit  || debit   || balance\n"
-	// 			+ this.date.toString() + " || 2000.00 ||         || 0.00";
-	// 	String res = this.a.generateBankStatement();
-	// 	Assertions.assertEquals(expected, res);
-	// }
+	@Test
+	public void shouldGenerateBankStatement(){
+		String expected = "date       || credit  || debit   || balance\n"
+				+ this.date.toString() + " || 2000.00 ||         || 0.00";
+		String res = this.a.generateBankStatement();
+		Assertions.assertEquals(expected, res);
+	}
 
 }
