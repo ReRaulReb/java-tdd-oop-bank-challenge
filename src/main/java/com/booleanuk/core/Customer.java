@@ -27,4 +27,5 @@ public class Customer {
 	public Account getAccount(String name) throws Exception{
 		return getBank().getAccount(name);
 	}
+	
 }

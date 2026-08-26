@@ -59,4 +59,5 @@ public class BankTest {
 		Exception exception = Assertions.assertThrows(Exception.class, () -> b.getAccount("test"));
 		Assertions.assertEquals("Account is not available!", exception.getMessage());
 	}
+	
 }
