@@ -18,6 +18,8 @@
             +deposit()
             +withdraw()
             +generateBankStatement()
+            +getters()
+            +private? setters()
         }
 
         class BankStatement{
@@ -32,19 +34,18 @@
         }
 
         class CurrentAccount{
-
         }
 
         class SavingsAccount{
-
         }
 
         class Customer{
-            -account
+            -accounts
             -name?
 
             +createCurrentAccount(name) Account
             +createSavingsAccount(name) Account
+            +getAccount(name) Account
         }
 
         superClassAccount o-- BankStatement: has
