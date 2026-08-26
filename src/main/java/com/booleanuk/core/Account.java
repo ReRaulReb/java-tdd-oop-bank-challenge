@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Account {
@@ -53,12 +55,16 @@ public class Account {
 		String tmp = "";
 		int currMax = 0;
 
-		for(BankStatement b : this.bankStatements){
+		List<BankStatement> tempList = this.bankStatements;
+		tempList.sort(Comparator.comparing(BankStatement::getDate));
+		Collections.reverse(tempList);
+
+		for(BankStatement b : tempList){
 			if (currMax < b.getMaxLenght())
 				currMax = b.getMaxLenght();
 		}
 
-		for(BankStatement b : this.bankStatements){
+		for(BankStatement b : tempList){
 			tmp += b.toString(currMax) + "\n";
 		}
 

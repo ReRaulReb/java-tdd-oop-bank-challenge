@@ -12,32 +12,32 @@ public class BankTest {
 
 	private Bank b;
 
-	// public BankTest(){
-	// 	this.b = new Bank();
-	// 	this.b.requstAccount("nvim funds", "SAV");
-	// }
+	public BankTest(){
+		this.b = new Bank();
+		this.b.requestAccount("nvim funds", "SAV");
+	}
 
-	// @Test
-	// public void shouldRequestCurrentAccount(){
-	// 	Account resAcc = this.b.requestAccount("testAccount", "CUR");
-	// 	Assertions.assertEquals(CurrentAccount.class, resAcc.class);
-	// 	Assertions.assertEquals("testAccount", resAcc.getName());
-	// }
+	@Test
+	public void shouldRequestCurrentAccount(){
+		Account resAcc = this.b.requestAccount("testAccount", "CUR");
+		Assertions.assertEquals(CurrentAccount.class, resAcc.getClass());
+		Assertions.assertEquals("testAccount", resAcc.getName());
+	}
 
-	// @Test
-	// public void shouldRequestSavingsAccount(){
-	// 	Account resAcc = this.b.requestAccount("testAccount", "SAV");
-	// 	Assertions.assertEquals(SavingsAccount.class, resAcc.class);
-	// 	Assertions.assertEquals("testAccount", resAcc.getName());
-	// }
+	@Test
+	public void shouldRequestSavingsAccount(){
+		Account resAcc = this.b.requestAccount("testAccount", "SAV");
+		Assertions.assertEquals(SavingsAccount.class, resAcc.getClass());
+		Assertions.assertEquals("testAccount", resAcc.getName());
+	}
 
-	// @Test void shouldBeVailidAccount(){
-	// 	Assertions.assertTrue(this.b.isValidAccount("TestAccount"));
-	// }
+	@Test void shouldBeVailidAccount(){
+		Assertions.assertTrue(this.b.isValidAccount("TestAccount"));
+	}
 
-	// @Test void shouldBeInvalidAccount(){
-	// 	Assertions.assertFalse(this.b.isValidAccount("nvim funds"));
-	// }
+	@Test void shouldBeInvalidAccount(){
+		Assertions.assertFalse(this.b.isValidAccount("nvim funds"));
+	}
 
 	// @Test void shouldGetAccount(){
 	// 	Account resAcc = this.b.getAccount("nvim funds");

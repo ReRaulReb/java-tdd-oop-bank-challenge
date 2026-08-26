@@ -1,6 +1,10 @@
 package com.booleanuk.core.accounts;
 
-public class SavingsAccount {
-    
-    
+import com.booleanuk.core.Account;
+
+public class SavingsAccount extends Account {
+
+	public SavingsAccount(String name){
+		super(name);
+	}
 }
