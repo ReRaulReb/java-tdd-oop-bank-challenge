@@ -1,20 +1,22 @@
 package com.booleanuk.core;
 
 import org.junit.jupiter.api.Test;
-
-import com.booleanuk.core.accounts.CurrentAccount;
-
 import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.booleanuk.core.accounts.*;
+
 public class CustomerTest {
 
 	private Customer c;
+	private Bank b;
 
 	public CustomerTest(){
-		this.c = new Customer();
+		this.b = new Bank();
+		this.b.requestAccount("nvim funds");
+		this.c = new Customer(this.b);
 	}
 
 	@Test

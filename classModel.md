@@ -5,9 +5,9 @@
             -accounts
 
             +requestAccount(name) Account
-            +private addAccount(name)
+            +private addAccount(Account)
             +private isValidAccount(name)
-            +getAccount(name) ? might not be needed
+            +getAccount(name) Account
         }
 
         class superClassAccount {
@@ -41,6 +41,7 @@
 
         class Customer{
             -accounts
+            -bank (takes it in constructor like inventory/stock from bob)
             -name?
 
             +createCurrentAccount(name) Account
