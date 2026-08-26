@@ -53,7 +53,7 @@ public class AccountTest {
 	@Test
 	public void shouldGenerateBankStatement(){
 		String expected = "date       || credit  || debit   || balance\n"
-				+ this.date.toString() + " || 2000.00 ||         || 0.00";
+				+ this.date.toString() + " || 2000.00 ||         || 2000.00";
 		String res = this.a.generateBankStatement();
 		Assertions.assertEquals(expected, res);
 	}

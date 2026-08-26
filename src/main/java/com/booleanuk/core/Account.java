@@ -7,12 +7,12 @@ public class Account {
 	
 	private String name;
 	private float balance;
-	private List<BankStatement> bankStatement;
+	private List<BankStatement> bankStatements;
 
 	public Account(String name){
 		setName(name);
 		setBalance(0f);
-		this.bankStatement = new ArrayList<BankStatement>();
+		this.bankStatements = new ArrayList<BankStatement>();
 	}
 
 	private void setName(String name){
@@ -24,7 +24,7 @@ public class Account {
 	}
 
 	private void addBankStatement(BankStatement bankStatement){
-		this.bankStatement.add(bankStatement);
+		this.bankStatements.add(bankStatement);
 	}
 
 	public String getName(){
@@ -47,6 +47,27 @@ public class Account {
 		BankStatement bankStatement = new BankStatement(0f, amount, getBalance());
 		addBankStatement(bankStatement);
 		setBalance(getBalance() - amount);
+	}
+
+	public String generateBankStatement(){
+		String tmp = "";
+		int currMax = 0;
+
+		for(BankStatement b : this.bankStatements){
+			if (currMax < b.getMaxLenght())
+				currMax = b.getMaxLenght();
+		}
+
+		for(BankStatement b : this.bankStatements){
+			tmp += b.toString(currMax) + "\n";
+		}
+
+		String start = "date" + " ".repeat(11 - 4) +
+			       "|| credit" + " ".repeat(currMax - 7) +
+			       "|| debit" + " ".repeat(currMax - 6)+
+			       "|| balance\n";
+
+		return (start + tmp).trim();
 	}
 
 }

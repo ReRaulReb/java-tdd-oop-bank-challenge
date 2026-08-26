@@ -94,4 +94,18 @@ public class BankStatement {
 			       String.format("%.2f", getCurrentBalance());
 	}
 
+	
+	public String toString(int max){
+		if(!(getCredit() == 0f))
+			return getDate().toString() + " || " + 
+			       String.format("%.2f", getCredit()) + " ".repeat(max - getMaxLenght()) + " ||" +
+			       " ".repeat(max) + "|| " +
+			       String.format("%.2f", getCurrentBalance());
+		else
+			return getDate().toString() + " ||" +
+			       " ".repeat(max) + "|| " +
+			       String.format("%.2f", getDebit()) + " ".repeat(max - getMaxLenght()) + " ||" +
+			       String.format("%.2f", getCurrentBalance());
+	}
+
 }
