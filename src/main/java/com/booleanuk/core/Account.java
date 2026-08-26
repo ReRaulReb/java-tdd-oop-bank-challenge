@@ -27,6 +27,10 @@ public class Account {
 		this.bankStatement.add(bankStatement);
 	}
 
+	public String getName(){
+		return this.name;
+	}
+
 	public float getBalance(){
 		return this.balance;
 	}
