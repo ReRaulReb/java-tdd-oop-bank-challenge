@@ -15,11 +15,11 @@
             -balance
             -bankstatements
 
-            +deposit()
-            +withdraw()
+            +deposit(amount)
+            +withdraw(amount)
             +generateBankStatement()
             +getters()
-            +private? setters()
+            +protected? setters()
         }
 
         class BankStatement{
@@ -27,6 +27,7 @@
             -credit
             -debit
             -balance of the time
+            -max lenght cred/deb, used for string
 
             +getters()
             +setters()
