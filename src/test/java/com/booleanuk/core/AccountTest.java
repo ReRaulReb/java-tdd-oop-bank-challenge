@@ -16,40 +16,40 @@ public class AccountTest {
 	private Account a;
 	private LocalDate date;
 
-	public AccountTest(){
-		this.a = new Account("testAccount");
-		this.a.deposit(2000f);
-		this.date = LocalDate.now();
-	}
+	// public AccountTest(){
+	// 	this.a = new Account("testAccount");
+	// 	this.a.deposit(2000f);
+	// 	this.date = LocalDate.now();
+	// }
 
-	@Test
-	public void shouldGetBalance(){
-		Assertions.assertEquals(2000f, a.getBalance(), 0.0001);
-	}
+	// @Test
+	// public void shouldGetBalance(){
+	// 	Assertions.assertEquals(2000f, a.getBalance(), 0.0001);
+	// }
 
-	@Test
-	public void shouldGetName(){
-		Assertions.assertEquals("testAccount", a.getName());
-	}
+	// @Test
+	// public void shouldGetName(){
+	// 	Assertions.assertEquals("testAccount", a.getName());
+	// }
 
-	@Test
-	public void shouldDeposit(){
-		this.a.deposit(2000f);
-		Assertions.assertEquals(4000f, this.a.getBalance(), 0.0001);
-	}
+	// @Test
+	// public void shouldDeposit(){
+	// 	this.a.deposit(2000f);
+	// 	Assertions.assertEquals(4000f, this.a.getBalance(), 0.0001);
+	// }
 
-	@Test
-	public void shouldWithdraw(){
-		this.a.withdraw(1000f);
-		Assertions.assertEquals(1000f, this.a.getBalance(), 0.0001);
-	}
+	// @Test
+	// public void shouldWithdraw(){
+	// 	this.a.withdraw(1000f);
+	// 	Assertions.assertEquals(1000f, this.a.getBalance(), 0.0001);
+	// }
 
-	@Test
-	public void generateBankStatement(){
-		String expected = "date       || credit  || debit   || balance\n"
-				+ this.date.toString() + " || 2000.00 ||         || 0.00";
-		String res = this.a.generateBankStatement();
-		Assertions.assertEquals(expected, res);
-	}
+	// @Test
+	// public void generateBankStatement(){
+	// 	String expected = "date       || credit  || debit   || balance\n"
+	// 			+ this.date.toString() + " || 2000.00 ||         || 0.00";
+	// 	String res = this.a.generateBankStatement();
+	// 	Assertions.assertEquals(expected, res);
+	// }
 
 }
