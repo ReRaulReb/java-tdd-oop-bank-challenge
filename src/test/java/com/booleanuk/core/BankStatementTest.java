@@ -50,5 +50,12 @@ public class BankStatementTest {
 		int res = this.bs.getMaxLenght();
 		Assertions.assertEquals(9, res);
 	}
+
+	@Test
+	public void shouldGetStatementToString(){
+		String res = this.bs.toString();
+		String expected = this.date.toString() + " || 2000.00 ||         || 4000.00";
+		Assertions.assertEquals(expected, res);
+	}
 	
 }
