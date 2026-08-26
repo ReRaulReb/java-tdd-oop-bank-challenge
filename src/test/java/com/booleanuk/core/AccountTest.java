@@ -47,7 +47,7 @@ public class AccountTest {
 	@Test
 	void shouldThrowExeptionWhenWithdrawLeadsToNegativeBalance(){
 		Exception exception = assertThrows(Exception.class, () -> this.a.withdraw(2500f));
-		assertEquals("Cannot make withdrawl, balance is less then amount requested", exception);
+		assertEquals("Cannot make withdrawl, balance is less then amount requested", exception.getMessage());
 	}
 
 	// @Test
