@@ -22,21 +22,21 @@ public class AccountTest {
 		this.date = LocalDate.now();
 	}
 
-	// @Test
-	// public void shouldGetBalance(){
-	// 	Assertions.assertEquals(2000f, a.getBalance(), 0.0001);
-	// }
+	@Test
+	public void shouldGetBalance(){
+		Assertions.assertEquals(2000f, a.getBalance(), 0.0001);
+	}
 
 	// @Test
 	// public void shouldGetName(){
 	// 	Assertions.assertEquals("testAccount", a.getName());
 	// }
 
-	// @Test
-	// public void shouldDeposit(){
-	// 	this.a.deposit(2000f);
-	// 	Assertions.assertEquals(4000f, this.a.getBalance(), 0.0001);
-	// }
+	@Test
+	public void shouldDeposit(){
+		this.a.deposit(2000f);
+		Assertions.assertEquals(4000f, this.a.getBalance(), 0.0001);
+	}
 
 	// @Test
 	// public void shouldWithdraw(){

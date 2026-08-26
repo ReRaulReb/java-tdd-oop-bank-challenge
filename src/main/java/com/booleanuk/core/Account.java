@@ -22,5 +22,20 @@ public class Account {
 	private void setBalance(float balance){
 		this.balance = balance;
 	}
+
+	private void addBankStatement(BankStatement bankStatement){
+		this.bankStatement.add(bankStatement);
+	}
+
+	public float getBalance(){
+		return this.balance;
+	}
+
+	public void deposit(float amount){
+		BankStatement bankStatement = new BankStatement(amount, 0f, getBalance());
+		addBankStatement(bankStatement);
+		setBalance(getBalance() + amount);
+	}
+
 }
 
