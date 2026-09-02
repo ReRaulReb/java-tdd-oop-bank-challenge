@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -38,17 +39,35 @@ public class Account {
 	}
 
 	public void deposit(float amount){
-		BankStatement bankStatement = new BankStatement(amount, 0f, getBalance());
+		float pos = Math.abs(amount);
+		BankStatement bankStatement = new BankStatement(pos, 0f, getBalance());
 		addBankStatement(bankStatement);
-		setBalance(getBalance() + amount);
+		setBalance(getBalance() + pos);
 	}
 
 	public void withdraw(float amount) throws Exception{
-		if ((getBalance() - amount) < 0)
+		float pos = Math.abs(amount);
+		if ((getBalance() - pos) < 0)
 			throw new Exception("Cannot make withdrawl, balance is less then amount requested");
-		BankStatement bankStatement = new BankStatement(0f, amount, getBalance());
+		BankStatement bankStatement = new BankStatement(0f, pos, getBalance());
 		addBankStatement(bankStatement);
-		setBalance(getBalance() - amount);
+		setBalance(getBalance() - pos);
+	}
+
+	public void deposit(float amount, LocalDate date){
+		float pos = Math.abs(amount);
+		BankStatement bankStatement = new BankStatement(date, pos, 0f, getBalance());
+		addBankStatement(bankStatement);
+		setBalance(getBalance() + pos);
+	}
+
+	public void withdraw(float amount, LocalDate date) throws Exception{
+		float pos = Math.abs(amount);
+		if ((getBalance() - pos) < 0)
+			throw new Exception("Cannot make withdrawl, balance is less then amount requested");
+		BankStatement bankStatement = new BankStatement(date, 0f, pos, getBalance());
+		addBankStatement(bankStatement);
+		setBalance(getBalance() - pos);
 	}
 
 	public String generateBankStatement(){

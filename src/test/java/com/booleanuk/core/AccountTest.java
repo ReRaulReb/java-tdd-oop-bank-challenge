@@ -12,9 +12,9 @@ public class AccountTest {
 	private LocalDate date;
 
 	public AccountTest(){
+		this.date = LocalDate.of(2012, 1, 12);
 		this.a = new Account("testAccount");
-		this.a.deposit(2000f);
-		this.date = LocalDate.now();
+		this.a.deposit(2000f, date);
 	}
 
 	@Test
@@ -52,5 +52,20 @@ public class AccountTest {
 		String res = this.a.generateBankStatement();
 		Assertions.assertEquals(expected, res);
 	}
+
+	@Test
+	public void shouldDepositAndWithdrawWithDates() throws Exception{
+		LocalDate date1 = LocalDate.of(2012, 1, 13);
+		LocalDate date2 = LocalDate.of(2012, 1, 14);
+		this.a.deposit(2000f, date1);
+		this.a.withdraw(500f, date2);
+		String expected = """
+date       || credit  || debit   || balance
+2012-01-14 ||         || 500.00  || 3500.00
+2012-01-13 || 2000.00 ||         || 4000.00
+2012-01-12 || 2000.00 ||         || 2000.00""";
+		Assertions.assertEquals(expected, this.a.generateBankStatement());
+	}
+
 
 }

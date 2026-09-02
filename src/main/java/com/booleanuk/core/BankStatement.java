@@ -104,7 +104,7 @@ public class BankStatement {
 		else
 			return getDate().toString() + " ||" +
 			       " ".repeat(max) + "|| " +
-			       String.format("%.2f", getDebit()) + " ".repeat(max - getMaxLenght()) + " ||" +
+			       String.format("%.2f", getDebit()) + " ".repeat(max - getMaxLenght()) + " || " +
 			       String.format("%.2f", getCurrentBalance());
 	}
 
