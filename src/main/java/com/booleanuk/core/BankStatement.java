@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class BankStatement {
 
@@ -10,6 +11,8 @@ public class BankStatement {
 	private float currentBalance;
 	private float beforeBalance;
 	private int maxLenght;
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	
 
 	public BankStatement(LocalDate date, float credit, float debit, float beforeBalance){
 		setDate(date);
@@ -83,12 +86,12 @@ public class BankStatement {
 	@Override
 	public String toString(){
 		if(!(getCredit() == 0f))
-			return getDate().toString() + " || " + 
+			return getDate().format(formatter).toString() + " || " + 
 			       String.format("%.2f", getCredit()) + " ||" +
 			       " ".repeat(getMaxLenght())+ "|| " +
 			       String.format("%.2f", getCurrentBalance());
 		else
-			return getDate().toString() + " ||" +
+			return getDate().format(formatter).toString() + " ||" +
 			       " ".repeat(getMaxLenght()) + "|| " +
 			       String.format("%.2f", getDebit()) + " ||" +
 			       String.format("%.2f", getCurrentBalance());
@@ -97,12 +100,12 @@ public class BankStatement {
 	
 	public String toString(int max){
 		if(!(getCredit() == 0f))
-			return getDate().toString() + " || " + 
+			return getDate().format(formatter).toString() + " || " + 
 			       String.format("%.2f", getCredit()) + " ".repeat(max - getMaxLenght()) + " ||" +
 			       " ".repeat(max) + "|| " +
 			       String.format("%.2f", getCurrentBalance());
 		else
-			return getDate().toString() + " ||" +
+			return getDate().format(formatter).toString() + " ||" +
 			       " ".repeat(max) + "|| " +
 			       String.format("%.2f", getDebit()) + " ".repeat(max - getMaxLenght()) + " || " +
 			       String.format("%.2f", getCurrentBalance());

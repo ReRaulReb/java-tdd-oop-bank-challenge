@@ -48,7 +48,7 @@ public class AccountTest {
 	@Test
 	public void shouldGenerateBankStatement(){
 		String expected = "date       || credit  || debit   || balance\n"
-				+ this.date.toString() + " || 2000.00 ||         || 2000.00";
+				+ "12/01/2012 || 2000.00 ||         || 2000.00";
 		String res = this.a.generateBankStatement();
 		Assertions.assertEquals(expected, res);
 	}
@@ -61,9 +61,9 @@ public class AccountTest {
 		this.a.withdraw(500f, date2);
 		String expected = """
 date       || credit  || debit   || balance
-2012-01-14 ||         || 500.00  || 3500.00
-2012-01-13 || 2000.00 ||         || 4000.00
-2012-01-12 || 2000.00 ||         || 2000.00""";
+14/01/2012 ||         || 500.00  || 3500.00
+13/01/2012 || 2000.00 ||         || 4000.00
+12/01/2012 || 2000.00 ||         || 2000.00""";
 		Assertions.assertEquals(expected, this.a.generateBankStatement());
 	}
 
